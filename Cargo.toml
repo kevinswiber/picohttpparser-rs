@@ -1,0 +1,8 @@
+[package]
+name = "picohttpparser"
+version = "0.1.0"
+authors = ["Kevin Swiber <kswiber@gmail.com>"]
+
+[dependencies]
+libc = "*"
+picohttpparser-sys = { git = "https://github.com/kevinswiber/picohttpparser-sys" }
