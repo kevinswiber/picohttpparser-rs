@@ -2,9 +2,9 @@ use libc::{c_char, c_int, size_t};
 use std::ptr;
 use std::str;
 use picohttpparser_sys::phr_parse_request;
+use common::{Error, Result, Status};
+use header::PicoHeader;
 use interop;
-
-pub use super::{Error, Header, PicoHeader, Result, Status};
 
 pub struct Request<'buf, 'headers: 'buf> {
     pub headers: &'headers mut [PicoHeader],
@@ -110,6 +110,8 @@ impl<'buf> ParsedRequest<'buf> {
 
 #[cfg(test)]
 mod tests {
+    use common::{Error, Status};
+    use header::{Header, PicoHeader};
     use super::*;
 
     #[test]
